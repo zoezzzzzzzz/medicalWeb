@@ -60,18 +60,18 @@
 							<a class="nav-link position-relative" href="javaScript:;">	<i class="bx bx-search vertical-align-middle"></i>
 							</a>
 						</li>
-	
-				
 						<li class="nav-item dropdown dropdown-user-profile">
 							<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javaScript:;" data-toggle="dropdown">
 								<div class="media user-box align-items-center">
-									<div class="media-body user-info">
-										<p class="user-name mb-0">Jessica Doe</p>
+									<div class="media-body user-info" id="sidTop">
 									</div>
 									<img src="assets/images/avatars/avatar-1.png" class="user-img" alt="user avatar">
 								</div>
 							</a>
-					
+							<div class="dropdown-menu dropdown-menu-right" >	
+								<div class="dropdown-divider mb-0"></div>	<a class="dropdown-item" href="Mindex.html">
+									<i class="bx bx-power-off"></i><span>Logout</span></a>
+							</div>
 						</li>
 					
 					</ul>
@@ -125,7 +125,7 @@
 									</button>
 								</div>
 								<div class="modal-body">
-									<div class="card-body">
+									<!-- <div class="card-body">
 										<div class="input-group mb-3">
 											<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">病人身份证</span>
 											</div>
@@ -149,6 +149,70 @@
 									<button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
 									<button type="button" onclick="submitForm()" class="btn btn-primary">确认</button>
 								</div>
+							</div> -->
+							<div class="card-body" >
+								<div class="row" style="padding-bottom: 40px;">
+									<p style="padding-right: 30px;padding-left: 30px;">	<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample">
+										已预约
+									</a>
+								</p>
+								<p>	<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample">
+									未预约
+								</a>
+								</p>
+							</div>
+					<div class="collapse" id="collapseExample1">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">病人身份证</span>
+								</div>
+								<input id='inputPID1' type="text" class="form-control" placeholder="请输入病人身份证" aria-label="Username" aria-describedby="basic-addon1">
+								<div class="input-group-prepend" style="margin-left: 10px;">	<span class="input-group-text" id="basic-addon1">预约号</span>
+								</div>
+								<input id='inputRID1' type="text" class="form-control" placeholder="请输入预约号" aria-label="Username" aria-describedby="basic-addon1">
+							</div>
+							<div class="modal-footer">
+								<button type="button" onclick="submitForm1()" class="btn btn-primary">确认</button>
+							</div>
+							</div>
+						<div class="collapse" id="collapseExample2">
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">病人身份证</span>
+									</div>
+									<input id='inputPID2' type="text" class="form-control" placeholder="请输入身份证" aria-label="Username" aria-describedby="basic-addon1">
+									<div class="input-group-prepend" style="margin-left: 10px;">	<span class="input-group-text" id="basic-addon1">姓名</span>
+									</div>
+									<input id='inputNAME' type="text" class="form-control" placeholder="请输入姓名" aria-label="Username" aria-describedby="basic-addon1">
+								</div>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">年龄</span>
+									</div>
+									<input id='inputAGE' type="text" class="form-control" placeholder="请输入年龄" aria-label="Username" aria-describedby="basic-addon1">
+									<div class="input-group-prepend" style="margin-left: 10px;">	<span class="input-group-text" id="basic-addon1">性别</span>
+									</div>
+									<input id='inputGENDER' type="text" class="form-control" placeholder="请输入性别" aria-label="Username" aria-describedby="basic-addon1">
+								</div>
+								<div class="input-group mb-3">
+									<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">民族</span>
+									</div>
+									<input id='inputNA' type="text" class="form-control" placeholder="请输入民族" aria-label="Username" aria-describedby="basic-addon1">
+									<div class="input-group-prepend" style="margin-left: 10px;">	<span class="input-group-text" id="basic-addon1">是否已婚</span>
+									</div>
+									<div class="btn-group btn-group-toggle" data-toggle="buttons">
+										<label class="btn btn-secondary active">
+											<input type="radio" name="options" value="1" checked="checked">是</label>
+										<label class="btn btn-secondary">
+											<input type="radio" name="options" value="0">否</label>
+									</div>
+								</div>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend" >	<span class="input-group-text" id="basic-addon1">手机号码</span>
+										</div>
+										<input id='inputPHONE' type="text" class="form-control" placeholder="请输入手机号码" aria-label="Username" aria-describedby="basic-addon1">
+									</div>
+								<div class="modal-footer">
+									<button type="button" onclick="submitForm2()" class="btn btn-primary">确认</button>
+								</div>
+						</div>
 							</div>
 						</div>
 					</div>
@@ -171,30 +235,6 @@
 	</div>
 	<!-- end wrapper -->
 	
-	<!--start switcher-->
-	   <div class="switcher-wrapper">
-	       <div class="switcher-btn">
-		       <i class='bx bx-cog bx-spin'></i>
-		   </div>
-		   <div class="switcher-body">
-		      <h5 class="mb-0 text-uppercase">Theme Customizer</h5>
-			  <hr/>
-			  <h6 class="mb-0">Theme Styles</h6>
-			  <hr/>
-			  <div class="custom-control custom-radio">
-				  <input type="radio" id="darkmode" name="customRadio" class="custom-control-input">
-				  <label class="custom-control-label" for="darkmode">Dark Mode</label>
-			  </div>
-			  <hr/>
-			  <div class="custom-control custom-radio">
-			    <input type="radio" id="lightmode" name="customRadio" checked class="custom-control-input">
-			    <label class="custom-control-label" for="lightmode">Light Mode</label>
-			  </div>
-		   </div>
-	   </div>
-	 <!--end switcher-->
-	 
-	
 	<!-- JavaScript -->
 
 
@@ -208,6 +248,7 @@
 	<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 	<!-- App JS -->
 	<script src="assets/js/app.js"></script>
+	<script src="assets/js/cookie.js"></script>
 	<script src="assets/js/doctor.js"></script>
 
 </body>

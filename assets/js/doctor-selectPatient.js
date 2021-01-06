@@ -1,4 +1,5 @@
-
+setSidTop()
+var globalPresentPatient = ''
 function getCookie(objName)//获取指定名称的cookie的值
 {    
     var arrStr = document.cookie.split(";");
@@ -19,19 +20,37 @@ function Next() {
   $.ajax({
     url:"http://39.108.63.4:8080/register/callForNext",
     type:"get",
+		async: false,
     data:data,
     dataType:"json",
     success:function(result){
-        // if(result.success == true){
-        //   if(sid[0] == 'F'){
-        //     window.location.href='guahao.html';
-        //   }else if(sid[0] == 'D'){
-        //     window.location.href='doctor-selectPatient.html';
-        //   }
-        // }
-        // oError.innerHTML = result.msg;
+        if(result.success == true){
+          globalPresentPatient = result.data.pID
+          console.log("globalPresentPatient",globalPresentPatient)
+          var idata={'nid':globalPresentPatient}
+          $.ajax({
+            url:"http://39.108.63.4:8080/reservation/pullPatientInfo",
+            type:"post",
+            async: false,
+            data:idata,
+            dataType:"json",
+            success:function(result){
+                if(result.success == true){
+                  var info = result.data
+                  var presentP = "当前病人：" + info.pName
+                  document.getElementById("presentP").innerHTML=presentP; 
+                  var html = ''
+                  html +=  '<div style="padding-bottom: 10px;">姓名：'+ info.pName+'</div>'+
+                            '<div style="padding-bottom: 10px;">年龄：'+ info.pAge+'</div>'+
+                            '<div style="padding-bottom: 10px;">性别：'+ info.pGender+'</div>'+
+                            '<div style="padding-bottom: 10px;">民族：'+ info.pNationality+'</div>'
+                  document.getElementById("patientInfo").innerHTML=html; 
+                }
+                console.log('re',result)
+            }
+        })
+        }
         console.log(result)
     }
 })
 }
-

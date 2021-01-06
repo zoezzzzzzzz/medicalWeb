@@ -59,30 +59,17 @@
 							<a class="nav-link position-relative" href="javaScript:;">	<i class="bx bx-search vertical-align-middle"></i>
 							</a>
 						</li>
-	
-				
 						<li class="nav-item dropdown dropdown-user-profile">
 							<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javaScript:;" data-toggle="dropdown">
 								<div class="media user-box align-items-center">
-									<div class="media-body user-info">
-										<p class="user-name mb-0">Jessica Doe</p>
-										<p class="designattion mb-0">Available</p>
+									<div class="media-body user-info" id="sidTop">
 									</div>
 									<img src="assets/images/avatars/avatar-1.png" class="user-img" alt="user avatar">
 								</div>
 							</a>
-							<div class="dropdown-menu dropdown-menu-right">	<a class="dropdown-item" href="javaScript:;"><i
-										class="bx bx-user"></i><span>Profile</span></a>
-								<a class="dropdown-item" href="javaScript:;"><i
-										class="bx bx-cog"></i><span>Settings</span></a>
-								<a class="dropdown-item" href="javaScript:;"><i
-										class="bx bx-tachometer"></i><span>Dashboard</span></a>
-								<a class="dropdown-item" href="javaScript:;"><i
-										class="bx bx-wallet"></i><span>Earnings</span></a>
-								<a class="dropdown-item" href="javaScript:;"><i
-										class="bx bx-cloud-download"></i><span>Downloads</span></a>
-								<div class="dropdown-divider mb-0"></div>	<a class="dropdown-item" href="javaScript:;"><i
-										class="bx bx-power-off"></i><span>Logout</span></a>
+							<div class="dropdown-menu dropdown-menu-right" >	
+								<div class="dropdown-divider mb-0"></div>	<a class="dropdown-item" href="Mindex.html">
+									<i class="bx bx-power-off"></i><span>Logout</span></a>
 							</div>
 						</li>
 					
@@ -177,31 +164,23 @@
 	</div>
 	<!-- end wrapper -->
 	
-	<!--start switcher-->
-	   <div class="switcher-wrapper">
-	       <div class="switcher-btn">
-		       <i class='bx bx-cog bx-spin'></i>
-		   </div>
-		   <div class="switcher-body">
-		      <h5 class="mb-0 text-uppercase">Theme Customizer</h5>
-			  <hr/>
-			  <h6 class="mb-0">Theme Styles</h6>
-			  <hr/>
-			  <div class="custom-control custom-radio">
-				  <input type="radio" id="darkmode" name="customRadio" class="custom-control-input">
-				  <label class="custom-control-label" for="darkmode">Dark Mode</label>
-			  </div>
-			  <hr/>
-			  <div class="custom-control custom-radio">
-			    <input type="radio" id="lightmode" name="customRadio" checked class="custom-control-input">
-			    <label class="custom-control-label" for="lightmode">Light Mode</label>
-			  </div>
-		   </div>
-	   </div>
-	 <!--end switcher-->
 	 
-	 <script>
-		var name = ''
+
+	<!-- JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/popper.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<!--plugins-->
+	<script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
+	<script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
+	<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+	<!-- App JS --> 
+	<script src="assets/js/app.js"></script>
+	<script src="assets/js/cookie.js"></script>
+
+	<script>
+		setSidTop()
 		function SelectDoctor(num){
 			switch(num){
 				case 0 :
@@ -214,36 +193,10 @@
 					name = '口腔科' 
 					break;
 			}
-		
 			var link ="doctor.html" + '?dept='+encodeURI(name)
 			window.location.href=link;   //这样就可以传过去了
-
 		}
-	  /*switcher*/
-	
-		$(".switcher-btn").on("click", function () {
-			$(".switcher-wrapper").toggleClass("switcher-toggled");
-		});
-		
-		$("#darkmode").on("click", function () {
-			$("html").addClass("dark-theme");
-		});
-		
-		$("#lightmode").on("click", function () {
-			$("html").removeClass("dark-theme");
-		});
 	</script> 
-	<!-- JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/popper.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<!--plugins-->
-	<script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
-	<script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
-	<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
-	<!-- App JS --> 
-	<script src="assets/js/app.js"></script>
 </body>
 
 </html>
