@@ -127,18 +127,18 @@
 					<!--end breadcrumb-->
 					<div class="row">
 						<div class="col-lg-4">
-							<div class="card">
+							<div class="card" onclick="SelectDoctor(0)">
 								<div class="card-body">
 									<div class="media align-items-center">
 										<div class="media-body ml-3">
-												<a href="javaScript:;" class="list-inline-item text-twitter">	<h5 class="mb-0">脑内科</h5></a>
+												<a href="javaScript:;" class="list-inline-item text-twitter" >	<h5 class="mb-0">脑内科</h5></a>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4">
-							<div class="card">
+							<div class="card" onclick="SelectDoctor(1)">
 								<div class="card-body">
 									<div class="media align-items-center">
 										<div class="media-body ml-3">
@@ -149,7 +149,7 @@
 							</div>
 						</div>
 						<div class="col-lg-4">
-							<div class="card">
+							<div class="card" onclick="SelectDoctor(2)">
 								<div class="card-body">
 									<div class="media align-items-center">
 										<div class="media-body ml-3">
@@ -201,6 +201,24 @@
 	 <!--end switcher-->
 	 
 	 <script>
+		var name = ''
+		function SelectDoctor(num){
+			switch(num){
+				case 0 :
+					name = '脑内科' 
+					break;
+				case 1 :
+					name = '心外科' 
+					break;
+				case 2 :
+					name = '口腔科' 
+					break;
+			}
+		
+			var link ="doctor.html" + '?dept='+encodeURI(name)
+			window.location.href=link;   //这样就可以传过去了
+
+		}
 	  /*switcher*/
 	
 		$(".switcher-btn").on("click", function () {

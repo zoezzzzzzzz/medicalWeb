@@ -15,10 +15,15 @@ function Login() {
   var sid=document.getElementById("sid").value
   var password=document.getElementById("password").value
   var oError = document.getElementById("error_box")
+  console.log(sid)
+  document.cookie ="sid="+sid
+  document.cookie ="password="+password
+  console.log(document.cookie.split(";"))
   // if (phoneNum.length != 11) {
   //  oError.innerHTML = "手机号必须为11位";
   //  isError = false;
   // }
+  
   var data = {"pw":password,"sid":sid}
   $.ajax({
     url:"http://localhost:8080/utils/login",
@@ -33,7 +38,6 @@ function Login() {
             window.location.href='doctor-selectPatient.html';
           }
         }
-        oError.innerHTML = result.msg;
         console.log(result.msg)
     }
 })
