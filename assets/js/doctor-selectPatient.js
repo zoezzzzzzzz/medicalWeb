@@ -17,7 +17,7 @@ function Next() {
   console.log('sid',sid)
   var data = {"sid":sid}
   $.ajax({
-    url:"http://localhost:8080/register/callForNext",
+    url:"http://39.108.63.4:8080/register/callForNext",
     type:"get",
     data:data,
     dataType:"json",

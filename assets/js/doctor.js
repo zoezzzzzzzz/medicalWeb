@@ -14,7 +14,7 @@
     var data = {"dept":dept}
     console.log('dept',dept)
 		$.ajax({
-			url:"http://localhost:8080/reservation/queryDocsFromDepts",
+			url:"http://39.108.63.4:8080/reservation/queryDocsFromDepts",
 			type:"get",
 			data:data,
 			dataType:"json",
@@ -58,7 +58,7 @@ function submitForm(){
 	console.log('InputData',InputData)
 	// 300000000000000000
 	$.ajax({
-		url:"http://localhost:8080/finance/getPaymentLink",
+		url:"http://39.108.63.4:8080/finance/getPaymentLink",
 		type:"post",
 		data:InputData,
 		dataType:"json",

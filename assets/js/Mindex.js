@@ -26,7 +26,7 @@ function Login() {
   
   var data = {"pw":password,"sid":sid}
   $.ajax({
-    url:"http://localhost:8080/utils/login",
+    url:"http://39.108.63.4:8080/utils/login",
     type:"post",
     data:data,
     dataType:"json",
