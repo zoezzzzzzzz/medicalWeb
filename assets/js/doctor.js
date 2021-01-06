@@ -100,6 +100,7 @@ function submitForm1(){
 }
 
 function submitForm2(){
+	var flag = true
 	var pid = document.getElementById("inputPID2").value
 	var page = parseInt(document.getElementById("inputAGE").value) 
 	var inputNAME = document.getElementById("inputNAME").value
@@ -108,35 +109,54 @@ function submitForm2(){
 	var inputPHONE = document.getElementById("inputPHONE").value
 	var radio0 = document.getElementsByName("options")[0].checked;
 	var InputData = {"page":page,"pgender":inputGENDER,"phone":inputPHONE,"pid":pid,"pmar":radio0,"pna":inputNA,"pname":inputNAME}
+	if(!(inputGENDER=='M' || inputGENDER=='F')){
+		var input_error = "性别输入错误"
+		document.getElementById("input_error").innerHTML=input_error; 
+		flag = false
+	}
+	if (pid.length > 18) {
+		var input_error = "身份证号码不超过18位"
+		document.getElementById("input_error").innerHTML=input_error; 
+		flag = false
+	}
+	if (inputPHONE.length > 11) {
+		var input_error = "手机号码不超过11位"
+		document.getElementById("input_error").innerHTML=input_error; 
+		flag = false
+	}
+	console.log("flag",flag)
 	console.log('InputData',InputData)
-	$.ajax({
-		url:"http://39.108.63.4:8080/reservation/submitNewPatient",
-		type:"post",
-		data:InputData,
-		dataType:"json",
-		async: false,
-		success:function(result){
-			console.log(result)
-				if(result.success == true){
-					var Data ={"isReserved":false,"pid":pid,"resvid":"","sid":globalSID}
-					console.log('data',Data)
-					$.ajax({
-						url:"http://39.108.63.4:8080/finance/getPaymentLink",
-						type:"post",
-						data:Data,
-						dataType:"json",
-						async: false,
-						success:function(result){
-							console.log(result)
-								if(result.success == true){
-									var linkData = result.data
-									console.log('link',linkData)
-									var link ="guahao.html" + '?linkData='+linkData
-									window.location.href = link	
-								}
-						}
-				})
-				}
-		}
-})
+	if(flag){
+		$.ajax({
+			url:"http://39.108.63.4:8080/reservation/submitNewPatient",
+			type:"post",
+			data:InputData,
+			dataType:"json",
+			async: false,
+			success:function(result){
+				console.log(result)
+					if(result.success == true){
+						var Data ={"isReserved":false,"pid":pid,"resvid":"","sid":globalSID}
+						console.log('data',Data)
+						$.ajax({
+							url:"http://39.108.63.4:8080/finance/getPaymentLink",
+							type:"post",
+							data:Data,
+							dataType:"json",
+							async: false,
+							success:function(result){
+								console.log(result)
+									if(result.success == true){
+										var linkData = result.data
+										console.log('link',linkData)
+										var link ="guahao.html" + '?linkData='+linkData
+										window.location.href = link	
+									}
+							}
+					})
+					}
+			}
+	})
+	}
+
 }
