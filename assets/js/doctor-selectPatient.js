@@ -25,30 +25,35 @@ function Next() {
     dataType:"json",
     success:function(result){
         if(result.success == true){
-          globalPresentPatient = result.data.pID
-          console.log("globalPresentPatient",globalPresentPatient)
-          var idata={'nid':globalPresentPatient}
-          $.ajax({
-            url:"http://39.108.63.4:8080/reservation/pullPatientInfo",
-            type:"post",
-            async: false,
-            data:idata,
-            dataType:"json",
-            success:function(result){
-                if(result.success == true){
-                  var info = result.data
-                  var presentP = "当前病人：" + info.pName
-                  document.getElementById("presentP").innerHTML=presentP; 
-                  var html = ''
-                  html +=  '<div style="padding-bottom: 10px;">姓名：'+ info.pName+'</div>'+
-                            '<div style="padding-bottom: 10px;">年龄：'+ info.pAge+'</div>'+
-                            '<div style="padding-bottom: 10px;">性别：'+ info.pGender+'</div>'+
-                            '<div style="padding-bottom: 10px;">民族：'+ info.pNationality+'</div>'
-                  document.getElementById("patientInfo").innerHTML=html; 
-                }
-                console.log('re',result)
-            }
-        })
+          if(result.msg !="$DOC HAS NO WAITING PATIENT"){
+            globalPresentPatient = result.data.pID
+            console.log("globalPresentPatient",globalPresentPatient)
+            var idata={'nid':globalPresentPatient}
+            $.ajax({
+              url:"http://39.108.63.4:8080/reservation/pullPatientInfo",
+              type:"post",
+              async: false,
+              data:idata,
+              dataType:"json",
+              success:function(result){
+                  if(result.success == true){
+                    var info = result.data
+                    var presentP = "当前病人：" + info.pName
+                    document.getElementById("presentP").innerHTML=presentP; 
+                    var html = ''
+                    html +=  '<div style="padding-bottom: 10px;">姓名：'+ info.pName+'</div>'+
+                              '<div style="padding-bottom: 10px;">年龄：'+ info.pAge+'</div>'+
+                              '<div style="padding-bottom: 10px;">性别：'+ info.pGender+'</div>'+
+                              '<div style="padding-bottom: 10px;">民族：'+ info.pNationality+'</div>'
+                    document.getElementById("patientInfo").innerHTML=html; 
+                  }
+                  console.log('re',result)
+              }
+          })
+          }
+        }else{
+          var error_msg = "您当前没有挂号的病人"
+          document.getElementById("error_msg").innerHTML=error_msg; 
         }
         console.log(result)
     }
