@@ -10,8 +10,10 @@
 	<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
 	<!--plugins-->
 	<link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet" />
-	<link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
+	<link href="assets/plugins/select2/css/select2.min.css" rel="stylesheet" />
+	<link href="assets/plugins/select2/css/select2-bootstrap4.css" rel="stylesheet" />
 	<link href="assets/plugins/metismenu/css/metisMenu.min.css" rel="stylesheet" />
+	<link href="assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css" rel="stylesheet" />
 	<!-- loader-->
 	<link href="assets/css/pace.min.css" rel="stylesheet" />
 	<script src="assets/js/pace.min.js"></script>
@@ -24,7 +26,7 @@
 	<link rel="stylesheet" href="assets/css/dark-style.css" />
 </head>
 
-<body>
+<body onload = "getallmed()">
 	<!-- wrapper -->
 	<div class="wrapper">
 		<!--header-->
@@ -125,337 +127,7 @@
 						<img src="assets/images/logo-dark.png" class="logo-icon-2" alt="">
 					</div>
 				</div>
-				<!--navigation-->
-				<ul class="metismenu" id="menu">
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"><i class="bx bx-home-alt"></i>
-							</div>
-							<div class="menu-title">Dashboard</div>
-						</a>
-						<ul class="">
-							<li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>eCommerce</a>
-							</li>
-							<li> <a href="index2.html"><i class="bx bx-right-arrow-alt"></i>Hospitality</a>
-							</li>
-							<li> <a href="index3.html"><i class="bx bx-right-arrow-alt"></i>Web Analytics</a>
-							</li>
-						</ul>
-					</li>
-					<li class="menu-label">Web Apps</li>
-					<li>
-						<a href="emailbox.html">
-							<div class="parent-icon"><i class="bx bx-envelope"></i>
-							</div>
-							<div class="menu-title">Email</div>
-						</a>
-					</li>
-					<li>
-						<a href="chat-box.html">
-							<div class="parent-icon"> <i class="bx bx-conversation"></i>
-							</div>
-							<div class="menu-title">Chat Box</div>
-						</a>
-					</li>
-					<li>
-						<a href="file-manager.html">
-							<div class="parent-icon"><i class="bx bx-archive"></i>
-							</div>
-							<div class="menu-title">File Manager</div>
-						</a>
-					</li>
-					<li>
-						<a href="contact-list.html">
-							<div class="parent-icon"><i class="bx bx-group"></i>
-							</div>
-							<div class="menu-title">Contatcs</div>
-						</a>
-					</li>
-					<li>
-						<a href="to-do.html">
-							<div class="parent-icon"><i class="bx bx-task"></i>
-							</div>
-							<div class="menu-title">Todo List</div>
-						</a>
-					</li>
-					<li>
-						<a href="invoice.html">
-							<div class="parent-icon"><i class="bx bx-file"></i>
-							</div>
-							<div class="menu-title">Invoice</div>
-						</a>
-					</li>
-					<li>
-						<a href="fullcalender.html">
-							<div class="parent-icon"> <i class="bx bx-calendar-check"></i>
-							</div>
-							<div class="menu-title">Calendar</div>
-						</a>
-					</li>
-					<li class="menu-label">UI Elements</li>
-					<li>
-						<a href="widgets.html">
-							<div class="parent-icon"><i class="bx bx-ghost"></i>
-							</div>
-							<div class="menu-title">Widgets</div>
-						</a>
-					</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"><i class="bx bx-spa"></i>
-							</div>
-							<div class="menu-title">Components</div>
-						</a>
-						<ul>
-							<li> <a href="component-alerts.html"><i class="bx bx-right-arrow-alt"></i>Alerts</a>
-							</li>
-							<li> <a href="component-bedges.html"><i class="bx bx-right-arrow-alt"></i>Badge</a>
-							</li>
-							<li> <a href="component-breadcrumb.html"><i class="bx bx-right-arrow-alt"></i>Breadcrumb</a>
-							</li>
-							<li> <a href="component-buttons.html"><i class="bx bx-right-arrow-alt"></i>Buttons</a>
-							</li>
-							<li> <a href="component-button-group.html"><i class="bx bx-right-arrow-alt"></i>Button Groups</a>
-							</li>
-							<li> <a href="component-cards.html"><i class="bx bx-right-arrow-alt"></i>Cards</a>
-							</li>
-							<li> <a href="component-card-actions.html"><i class="bx bx-right-arrow-alt"></i>Card Actions</a>
-							</li>
-							<li> <a href="component-carousels.html"><i class="bx bx-right-arrow-alt"></i>Carousel</a>
-							</li>
-							<li> <a href="component-collapses.html"><i class="bx bx-right-arrow-alt"></i>Collapse</a>
-							</li>
-							<li> <a href="component-dropdowns.html"><i class="bx bx-right-arrow-alt"></i>Dropdowns</a>
-							</li>
-							<li> <a href="component-list-groups.html"><i class="bx bx-right-arrow-alt"></i>List Groups</a>
-							</li>
-							<li> <a href="component-media-object.html"><i class="bx bx-right-arrow-alt"></i>Media Objects</a>
-							</li>
-							<li> <a href="component-modals.html"><i class="bx bx-right-arrow-alt"></i>Modal</a>
-							</li>
-							<li> <a href="component-navs.html"><i class="bx bx-right-arrow-alt"></i>Navs</a>
-							</li>
-							<li> <a href="components-navbar.html"><i class="bx bx-right-arrow-alt"></i>Navbar</a>
-							</li>
-							<li> <a href="component-paginations.html"><i class="bx bx-right-arrow-alt"></i>Pagination</a>
-							</li>
-							<li> <a href="component-popovers.html"><i class="bx bx-right-arrow-alt"></i>Popovers</a>
-							</li>
-							<li> <a href="component-progress-bars.html"><i class="bx bx-right-arrow-alt"></i>Progress</a>
-							</li>
-							<li> <a href="component-spinners.html"><i class="bx bx-right-arrow-alt"></i>Spinners</a>
-							</li>
-							<li> <a href="component-toasts.html"><i class="bx bx-right-arrow-alt"></i>Toasts</a>
-							</li>
-							<li> <a href="component-tooltips.html"><i class="bx bx-right-arrow-alt"></i>Tooltips</a>
-							</li>
-							<li> <a href="components-avtars.html"><i class="bx bx-right-arrow-alt"></i>Avatrs</a>
-							</li>
-							<li> <a href="components-chips.html"><i class="bx bx-right-arrow-alt"></i>Chips</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"><i class="bx bx-repeat"></i>
-							</div>
-							<div class="menu-title">Content</div>
-						</a>
-						<ul>
-							<li> <a href="content-grid-system.html"><i class="bx bx-right-arrow-alt"></i>Grid System</a>
-							</li>
-							<li> <a href="content-typography.html"><i class="bx bx-right-arrow-alt"></i>Typography</a>
-							</li>
-							<li> <a href="content-text-utilities.html"><i class="bx bx-right-arrow-alt"></i>Text Utilities</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"> <i class="bx bx-donate-blood"></i>
-							</div>
-							<div class="menu-title">Icons</div>
-						</a>
-						<ul>
-							<li> <a href="icons-line-icons.html"><i class="bx bx-right-arrow-alt"></i>Line Icons</a>
-							</li>
-							<li> <a href="icons-boxicons.html"><i class="bx bx-right-arrow-alt"></i>Boxicons</a>
-							</li>
-							<li> <a href="icons-feather-icons.html"><i class="bx bx-right-arrow-alt"></i>Feather Icons</a>
-							</li>
-						</ul>
-					</li>
-					<li class="menu-label">Forms & Tables</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"> <i class="bx bx-comment-edit"></i>
-							</div>
-							<div class="menu-title">Forms</div>
-						</a>
-						<ul>
-							<li> <a href="form-elements.html"><i class="bx bx-right-arrow-alt"></i>Form Elements</a>
-							</li>
-							<li> <a href="form-input-group.html"><i class="bx bx-right-arrow-alt"></i>Input Groups</a>
-							</li>
-							<li> <a href="form-layouts.html"><i class="bx bx-right-arrow-alt"></i>Forms Layouts</a>
-							</li>
-							<li> <a href="form-validations.html"><i class="bx bx-right-arrow-alt"></i>Form Validation</a>
-							</li>
-							<li> <a href="form-wizard.html"><i class="bx bx-right-arrow-alt"></i>Form Wizard</a>
-							</li>
-							<li> <a href="form-text-editor.html"><i class="bx bx-right-arrow-alt"></i>Text Editor</a>
-							</li>
-							<li> <a href="form-file-upload.html"><i class="bx bx-right-arrow-alt"></i>File Upload</a>
-							</li>
-							<li> <a href="form-date-time-pickes.html"><i class="bx bx-right-arrow-alt"></i>Date Pickers</a>
-							</li>
-							<li> <a href="form-select2.html"><i class="bx bx-right-arrow-alt"></i>Select2</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"><i class="bx bx-grid-alt"></i>
-							</div>
-							<div class="menu-title">Tables</div>
-						</a>
-						<ul>
-							<li> <a href="table-basic-table.html"><i class="bx bx-right-arrow-alt"></i>Basic Table</a>
-							</li>
-							<li> <a href="table-datatable.html"><i class="bx bx-right-arrow-alt"></i>Data Table</a>
-							</li>
-							<li> <a href="table-editable.html"><i class="bx bx-right-arrow-alt"></i>Editable Table</a>
-							</li>
-						</ul>
-					</li>
-					<li class="menu-label">Pages</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"><i class="bx bx-lock"></i>
-							</div>
-							<div class="menu-title">Authentication</div>
-						</a>
-						<ul>
-							<li> <a href="authentication-login.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>Login</a>
-							</li>
-							<li> <a href="authentication-register.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>Register</a>
-							</li>
-							<li> <a href="authentication-forgot-password.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>Forgot Password</a>
-							</li>
-							<li> <a href="authentication-reset-password.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>Reset Password</a>
-							</li>
-							<li> <a href="authentication-lock-screen.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>Lock Screen</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="user-profile.html">
-							<div class="parent-icon"><i class="bx bx-user-circle"></i>
-							</div>
-							<div class="menu-title">User Profile</div>
-						</a>
-					</li>
-					<li>
-						<a href="timeline.html">
-							<div class="parent-icon"> <i class="bx bx-video-recording"></i>
-							</div>
-							<div class="menu-title">Timeline</div>
-						</a>
-					</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"><i class="bx bx-error"></i>
-							</div>
-							<div class="menu-title">Errors</div>
-						</a>
-						<ul>
-							<li> <a href="errors-404-error.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>404 Error</a>
-							</li>
-							<li> <a href="errors-500-error.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>500 Error</a>
-							</li>
-							<li> <a href="errors-coming-soon.html" target="_blank"><i class="bx bx-right-arrow-alt"></i>Coming Soon</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="faq.html">
-							<div class="parent-icon"><i class="bx bx-help-circle"></i>
-							</div>
-							<div class="menu-title">FAQ</div>
-						</a>
-					</li>
-					<li>
-						<a href="pricing-table.html">
-							<div class="parent-icon"><i class="bx bx-diamond"></i>
-							</div>
-							<div class="menu-title">Pricing</div>
-						</a>
-					</li>
-					<li class="menu-label">Charts & Maps</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"><i class="bx bx-line-chart"></i>
-							</div>
-							<div class="menu-title">Charts</div>
-						</a>
-						<ul>
-							<li> <a href="charts-apex-chart.html"><i class="bx bx-right-arrow-alt"></i>Apex</a>
-							</li>
-							<li> <a href="charts-chartjs.html"><i class="bx bx-right-arrow-alt"></i>Chartjs</a>
-							</li>
-							<li> <a href="charts-highcharts.html"><i class="bx bx-right-arrow-alt"></i>Highcharts</a>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"><i class="bx bx-map-alt"></i>
-							</div>
-							<div class="menu-title">Maps</div>
-						</a>
-						<ul>
-							<li> <a href="map-google-maps.html"><i class="bx bx-right-arrow-alt"></i>Google Maps</a>
-							</li>
-							<li> <a href="map-vector-maps.html"><i class="bx bx-right-arrow-alt"></i>Vector Maps</a>
-							</li>
-						</ul>
-					</li>
-					<li class="menu-label">Others</li>
-					<li>
-						<a class="has-arrow" href="javaScript:;">
-							<div class="parent-icon"><i class="bx bx-menu"></i>
-							</div>
-							<div class="menu-title">Menu Levels</div>
-						</a>
-						<ul>
-							<li> <a class="has-arrow" href="javaScript:;"><i class="bx bx-right-arrow-alt"></i>Level One</a>
-								<ul>
-									<li> <a class="has-arrow" href="javaScript:;"><i class="bx bx-right-arrow-alt"></i>Level Two</a>
-										<ul>
-											<li> <a href="javaScript:;"><i class="bx bx-right-arrow-alt"></i>Level Three</a>
-											</li>
-										</ul>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</li>
-					<li>
-						<a href="documentation/index.html" target="_blank">
-							<div class="parent-icon"><i class="bx bx-folder"></i>
-							</div>
-							<div class="menu-title">Documentation</div>
-						</a>
-					</li>
-					<li>
-						<a href="http://www.bootstrapmb.com/" target="_blank">
-							<div class="parent-icon"><i class="bx bx-support"></i>
-							</div>
-							<div class="menu-title">Support</div>
-						</a>
-					</li>
-				</ul>
-				<!--end navigation-->
+				<!--navigation--><!--end navigation-->
 			</div>
 			<!--end sidebar-wrapper-->
 			<!--page-content-wrapper-->
@@ -474,6 +146,7 @@
 							<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
+										<form id="form1" action='http://39.108.63.4:8080/treatment/submitPatientHistory' method='post'>
 										<div class="modal-header">
 											<h5 class="modal-title">Modal title</h5>
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">	<span aria-hidden="true">&times;</span>
@@ -483,82 +156,68 @@
 											<div class="card-body">
 												<label for="basic-url">基本信息</label>
 												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">姓名</span>
+													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">就诊id</span>
 													</div>
-													<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-													<div class="input-group-prepend" style="margin-left: 10px;">	<span class="input-group-text" id="basic-addon1">性别</span>
+													<input type="text" id="cid" name="cid" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+													<div class="input-group-prepend" style="margin-left: 10px;">	<span class="input-group-text" id="basic-addon1">医生id</span>
 													</div>
-													<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+													<input type="text" id="sid" name="sid" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
 												</div>
 												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">科室</span>
+													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">患者联系方式</span>
 													</div>
-													<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-													<div class="input-group-prepend" style="margin-left: 10px;">	<span class="input-group-text" id="basic-addon1">主治医师</span>
-													</div>
-													<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">日期</span>
-													</div>
-													<input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-												</div>
-												<label for="basic-url">病况</label>
+													<input type="text" id="pnid" name="pnid" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+												</div>											
+												<label for="basic-url">病况信息</label>
 												<div class="input-group mb-3">
 													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon3">主诉</span>
 													</div>
-													<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon3">现病史</span>
-													</div>
-													<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon3">既往史</span>
-													</div>
-													<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon3">过敏史</span>
-													</div>
-													<input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text">体检</span>
-													</div>
-													<textarea class="form-control" aria-label="With textarea"></textarea>
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text">辅助检查</span>
-													</div>
-													<textarea class="form-control" aria-label="With textarea"></textarea>
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text">诊断</span>
-													</div>
-													<textarea class="form-control" aria-label="With textarea"></textarea>
-												</div>
-												<div class="input-group mb-3">
-													<div class="input-group-prepend">	<span class="input-group-text">处理</span>
-													</div>
-													<textarea class="form-control" aria-label="With textarea"></textarea>
+													<textarea id="comment" name="comment" class="form-control" aria-label="With textarea"></textarea>
 												</div>
 											</div>
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											<button type="button" class="btn btn-primary">Save changes</button>
+											<button type="button" onclick="subBingli()" class="btn btn-secondary" data-dismiss="modal">提交</button>
+											<button type="button" onclick="findhis()" class="btn btn-secondary" data-dismiss="modal">输入pnid查看历史病历</button>
 										</div>
+								        </form>
 									</div>
 								</div>
 							</div>
-							<button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal"><a href="new-record.html" style="color: white !important;;">查看病历</a></button>
+							<!-- <button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal"><a href="new-record.html" style="color: white !important;;">查看病历</a></button> -->
 							<!-- Button trigger modal -->
 							<button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">开药</button>
 							<!-- Button trigger modal -->
 							<button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">开检验单</button>
-                            <!-- Modal -->
+							<!-- <button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#checkmodal">查看检验是否完成</button> -->
+							
+							<div class="modal fade" id="checkmodal" tabindex="-1" role="dialog" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title">Modal title</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">	<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<div class="form-body">
+												<div class="input-group mb-3">
+													<div class="input-group-prepend">	<span class="input-group-text" id="basic-addon1">输入cid</span>
+													</div>
+													<input type="text" id="checkcid" name="cid" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+												</div>
+											</div>
+										</div>		
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											<button type="button" onclick="checkjianyan()" class="btn btn-primary">查询</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<!-- Modal -->
 							<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-hidden="true">
 								<div class="modal-dialog">
 									<div class="modal-content">
@@ -570,19 +229,18 @@
 										<div class="modal-body">
 											<div class="form-body">
 												<div class="form-row">
-													<div class="form-group col-md-6">
+													<div class="form-group">
 														<label>检验项目</label>
-														<input type="text" class="form-control" />
+														<select id="validationCustom" class="multiple-select" data-placeholder="Choose anything" multiple="multiple">
+														</select>
 													</div>
-													<div class="form-group col-md-6">
-														<label>价格</label>
-														<input type="text" class="form-control" />
-													</div>											
+																						
+											    </div>
 											</div>
-										</div>
+										</div>		
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											<button type="button" class="btn btn-primary">Save changes</button>
+											<button type="button" onclick="jianyan()" class="btn btn-primary">Save changes</button>
 										</div>
 									</div>
 								</div>
@@ -594,7 +252,7 @@
 								<div class="modal-dialog">
 									<div class="modal-content">
 										<div class="modal-header">
-											<h5 class="modal-title">Modal title</h5>
+											<h5 class="modal-title">开药</h5>
 											<button type="button" class="close" data-dismiss="modal" aria-label="Close">	<span aria-hidden="true">&times;</span>
 											</button>
 										</div>
@@ -602,67 +260,48 @@
 											<div class="form-body">
 												<div class="form-row">
 													<div class="form-group col-md-6">
-														<label>药品名</label>
-														<input type="text" class="form-control" />
+														<label>药物</label>
+														<select class="custom-select" id="validationCustom04" required>
+															
+														</select>
 													</div>
 													<div class="form-group col-md-6">
 														<label>数量</label>
-														<input type="text" class="form-control" />
-													</div>
+														<input id="num1" name="num1" type="text" class="form-control" />
+													</div>	
+																						
+												</div>
+												<div class="form-row">
 													<div class="form-group col-md-6">
-														<label>药品名</label>
-														<input type="text" class="form-control" />
-													</div>
-													<div class="form-group col-md-6">
-														<label>数量</label>
-														<input type="text" class="form-control" />
-													</div>
-													<div class="form-group col-md-6">
-														<label>药品名</label>
-														<input type="text" class="form-control" />
+														<label>药物</label>
+														<select class="custom-select" id="validationCustom05" required>
+															
+														</select>
 													</div>
 													<div class="form-group col-md-6">
 														<label>数量</label>
-														<input type="text" class="form-control" />
-													</div>
+														<input id="num2" name="num2" type="text" class="form-control" />
+													</div>	
+																						
+												</div>
+												<div class="form-row">
 													<div class="form-group col-md-6">
-														<label>药品名</label>
-														<input type="text" class="form-control" />
-													</div>
-													<div class="form-group col-md-6">
-														<label>数量</label>
-														<input type="text" class="form-control" />
-													</div>
-													<div class="form-group col-md-6">
-														<label>药品名</label>
-														<input type="text" class="form-control" />
+														<label>药物</label>
+														<select class="custom-select" id="validationCustom06" required>
+															
+														</select>
 													</div>
 													<div class="form-group col-md-6">
 														<label>数量</label>
-														<input type="text" class="form-control" />
-													</div>
-													<div class="form-group col-md-6">
-														<label>药品名</label>
-														<input type="text" class="form-control" />
-													</div>
-													<div class="form-group col-md-6">
-														<label>数量</label>
-														<input type="text" class="form-control" />
-													</div>
-													<div class="form-group col-md-6">
-														<label>药品名</label>
-														<input type="text" class="form-control" />
-													</div>
-													<div class="form-group col-md-6">
-														<label>数量</label>
-														<input type="text" class="form-control" />
-													</div>
-			
+														<input id="num3" name="num3" type="text" class="form-control" />
+													</div>	
+																						
+											    </div>
 											</div>
-										</div>
+										</div>	
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											<button type="button" class="btn btn-primary">Save changes</button>
+											<button type="button" onclick="kaiyao()" class="btn btn-primary">提交</button>
 										</div>
 									</div>
 								</div>
@@ -670,6 +309,7 @@
 							<!-- Button trigger modal -->
 						</div>
 					</div>
+
 				</div>
 			</div>
 			<!--end page-content-wrapper-->
@@ -722,7 +362,14 @@
 	<script src="assets/plugins/simplebar/js/simplebar.min.js"></script>
 	<script src="assets/plugins/metismenu/js/metisMenu.min.js"></script>
 	<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
+	<script src="assets/plugins/select2/js/select2.min.js"></script>
 	<script>
+		$('.multiple-select').select2({
+			theme: 'bootstrap4',
+			width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+			placeholder: $(this).data('placeholder'),
+			allowClear: Boolean($(this).data('allow-clear')),
+		});
 		$('#exampleVaryingModalContent').on('show.bs.modal', function (event) {
 			var button = $(event.relatedTarget) // Button that triggered the modal
 			var recipient = button.data('whatever') // Extract info from data-* attributes
@@ -732,6 +379,157 @@
 			modal.find('.modal-title').text('New message to ' + recipient)
 			modal.find('.modal-body input').val(recipient)
 		});
+
+		function findhis() {
+			var pnid=document.getElementById("pnid").value
+			window.location.href='new-record.html?pnid='+pnid;
+		}
+
+		function subBingli() {
+			var sid=document.getElementById("sid").value
+			var cid=document.getElementById("cid").value
+			var pnid=document.getElementById("pnid").value
+			var comment=document.getElementById("comment").value
+			console.log(sid)
+			console.log("bbbbbb")
+			
+			var data = {"cid":cid, "sid":sid, "comment":comment, "pnid":pnid}
+			$.ajax({
+				url:"http://39.108.63.4:8080/treatment/submitPatientHistory",
+				type:"post",
+				data:data,
+				dataType:"json",
+				success:function(result){
+					console.log("ccc")
+					console.log(result)
+					if(result.success == true){
+						console.log("aaaaaaa")
+						console.log(result.msg)
+					    
+					}
+					window.alert(result.msg)
+				}
+			})
+			// window.alert("登录成功")
+		}
+		
+		function getallmed() {
+            $.ajax({
+				url:"http://39.108.63.4:8080/treatment/getAllMedicine",
+				type:"get",
+				dataType:"json",
+				success:function(result){
+					console.log("ccc")
+					console.log(result)
+					var list = result.data
+					console.log(list)
+					for (var i=0; i<list.length;i++) {
+						var newOption1 = document.createElement("option");
+						newOption1.text = list[i].medicineName
+                        newOption1.value = list[i].medicineID
+                        var newOption2 = document.createElement("option");
+						newOption2.text = list[i].medicineName
+                        newOption2.value = list[i].medicineID
+                        var newOption3 = document.createElement("option");
+						newOption3.text = list[i].medicineName
+						newOption3.value = list[i].medicineID
+                        document.getElementById("validationCustom04").add(newOption1);
+                        document.getElementById("validationCustom05").add(newOption2);
+                        document.getElementById("validationCustom06").add(newOption3);
+					}
+				}
+			})
+			$.ajax({
+				url:"http://39.108.63.4:8080/treatment/getAnalysisItems",
+				type:"get",
+				dataType:"json",
+				success:function(result){
+					console.log("ccc")
+					console.log(result)
+					var list = result.data
+					console.log(list)
+					for (var i=0; i<list.length;i++) {
+						var newOption1 = document.createElement("option");
+						newOption1.text = list[i].testName
+                        newOption1.value = list[i].testItemID
+                        
+                        document.getElementById("validationCustom").add(newOption1);
+					}
+				}
+			})
+		}
+		function getQueryString(name) {
+			var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) {
+				return unescape(r[2]);
+			}
+			return null;
+		}
+       function kaiyao() {
+		   var cid = getQueryString("cid")
+		   var sid = getQueryString("sid")
+		   var options1=$("#validationCustom04 option:selected");
+           var medid1 = options1.val()
+           console.log(medid1)
+           var num1 = document.getElementById("num1").value
+           var options2=$("#validationCustom05 option:selected");
+           var medid2 = options2.val()
+           var num2 = document.getElementById("num2").value
+           var options3=$("#validationCustom06 option:selected");
+           var medid3 = options3.val()
+           var num3 = document.getElementById("num3").value
+
+           var medl = {[medid1]:num1, [medid2]:num2, [medid3]:num3}
+		   console.log(sid)
+		   var data = {"sid":sid, "cid":cid, "medList":medl}
+		   $.ajax({
+				url:"http://39.108.63.4:8080/treatment/submitMedicineTable2",
+				type:"post",
+				contentType: "application/json",
+				data:JSON.stringify(data),
+				dataType:"json",
+				success:function(result){
+					console.log("ccc")
+					console.log(result)
+					console.log(data)
+					if(result.success == true){
+						window.alert("success")	
+						//window.location.href='yaojishimedlist.html?mtid='+mtid+'&sid='+sid;
+					} else {
+						window.alert("fail")
+					}
+				}
+			})
+	   }
+
+	   function jianyan() {
+		   var cid = getQueryString("cid")
+		   var sid = getQueryString("sid")
+		   var options1=$("#validationCustom").val();
+		   console.log(options1)
+		   var data = {"anaList":options1, "cid":cid, "sid":sid}
+		   $.ajax({
+				url:"http://39.108.63.4:8080/treatment/submitAnalysisTable",
+				contentType: "application/json",
+				type:"post",
+				data:JSON.stringify(data),
+				dataType:"json",
+				success:function(result){
+					console.log("ccc")
+					console.log(result)
+					console.log(data)
+					if(result.success == true){
+						window.alert("success")	
+						//window.location.href='yaojishimedlist.html?mtid='+mtid+'&sid='+sid;
+					} else {
+						window.alert("fail")
+					}
+				}
+			})
+
+	   }
+
 	</script>
 	<!-- App JS -->
 	<script src="assets/js/app.js"></script>

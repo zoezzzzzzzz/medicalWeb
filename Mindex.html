@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>Synadmin - Bootstrap4 Admin Template</title>
+    <!--favicon-->
+    <link rel="icon" href="assets/images/favicon-32x32.png" type="image/png"/>
+	<!-- loader-->
+    <link href="assets/css/pace.min.css" rel="stylesheet"/>
+    <script src="assets/js/pace.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="assets/css/icons.css" />
+    <!-- App CSS -->
+    <link rel="stylesheet" href="assets/css/app.css" />
+	<link rel="stylesheet" href="assets/css/dark-style.css" />
+  </head>
+
+  <body>
+    <!-- wrapper -->
+    <div class="wrapper" style="padding-top: 50px;">
+     
+	 <div class="section-authentication">
+	   <div class="container-fluid">
+	    <div class="card mb-0">
+	     <div class="card-body p-0">
+		  <div class="row no-gutters">
+			<div class="col-12 col-lg-5 col-xl-4 d-flex align-items-stretch">
+			  <div class="card mb-0 shadow-none bg-transparent w-100 login-card rounded-0">
+			     <div class="card-body p-md-5">
+				  <img src="assets/images/logo-img.png" width="180" alt=""/>
+					 <h4 class="mt-5"><strong>登录</strong></h4>
+					 <div class="form-group mt-4">
+					   <label>手机</label>
+					   <input type="text" class="form-control" placeholder="请输入数据号砄1�7"/> 
+					 </div>
+					 <div class="form-group">
+					   <label>密码</label>
+					   <input type="password" class="form-control" placeholder="请输入密砄1�7"/>
+					 </div>
+					 
+					 <button type="button" class="btn btn-primary btn-block mt-3"><i class='bx bxs-lock mr-1'></i>登录</button>
+					 
+				 </div>
+			  </div>
+			</div>
+			<div class="col-12 col-lg-7 col-xl-8 d-flex align-items-stretch">
+			  <div class="card mb-0 shadow-none bg-transparent w-100 rounded-0">
+				  <div class="card-body p-md-5">
+				    <div class="text-center"><img src="assets/images/login-images/auth-img-7.png" class="img-fluid" alt=""/></div>
+				  </div>
+			  </div>
+			 </div>
+		    </div>
+		    </div>
+
+		   </div>
+		 </div>
+	  </div>
+      
+    </div>
+    <!-- end wrapper -->
+	
+	
+	<!--start switcher-->
+	   <div class="switcher-wrapper">
+	       <div class="switcher-btn">
+		       <i class='bx bx-cog bx-spin'></i>
+		   </div>
+		   <div class="switcher-body">
+		      <h5 class="mb-0 text-uppercase">Theme Customizer</h5>
+			  <hr/>
+			  <h6 class="mb-0">Theme Styles</h6>
+			  <hr/>
+			  <div class="custom-control custom-radio">
+				  <input type="radio" id="darkmode" name="customRadio" class="custom-control-input">
+				  <label class="custom-control-label" for="darkmode">Dark Mode</label>
+			  </div>
+			  <hr/>
+			  <div class="custom-control custom-radio">
+			    <input type="radio" id="lightmode" name="customRadio" checked class="custom-control-input">
+			    <label class="custom-control-label" for="lightmode">Light Mode</label>
+			  </div>
+		   </div>
+	   </div>
+	 <!--end switcher-->
+
+	 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="assets/js/jquery.min.js"></script>
+	 
+	<script>
+	  /*switcher*/
+	
+		$(".switcher-btn").on("click", function () {
+			$(".switcher-wrapper").toggleClass("switcher-toggled");
+		});
+		
+		$("#darkmode").on("click", function () {
+			$("html").addClass("dark-theme");
+		});
+		
+		$("#lightmode").on("click", function () {
+			$("html").removeClass("dark-theme");
+		});
+	</script> 
+	 
+	 
+  </body>
+</html>

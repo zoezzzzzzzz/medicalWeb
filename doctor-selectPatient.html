@@ -59,18 +59,18 @@
 							<a class="nav-link position-relative" href="javaScript:;">	<i class="bx bx-search vertical-align-middle"></i>
 							</a>
 						</li>
+	
+				
 						<li class="nav-item dropdown dropdown-user-profile">
 							<a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javaScript:;" data-toggle="dropdown">
 								<div class="media user-box align-items-center">
-									<div class="media-body user-info" id="sidTop">
+									<div class="media-body user-info">
+										<p class="user-name mb-0">Jessica Doe</p>
 									</div>
 									<img src="assets/images/avatars/avatar-1.png" class="user-img" alt="user avatar">
 								</div>
 							</a>
-							<div class="dropdown-menu dropdown-menu-right" >	
-								<div class="dropdown-divider mb-0"></div>	<a class="dropdown-item" href="Mindex.html">
-									<i class="bx bx-power-off"></i><span>Logout</span></a>
-							</div>
+						
 						</li>
 					
 					</ul>
@@ -114,19 +114,22 @@
           <!--end breadcrumb-->
         	<div class="card">
             <div style="display: flex;flex-direction: row;">
-              <div class="card-header" id="presentP">当前病人：</div>
+              <div class="card-header">当前病人：</div>
+              <div style="font-size:large;padding-top: 10px;padding-right: 50px;" >5</div>
               <div class="btn-group m-1" role="group" aria-label="Basic example">
-								<button type="button" class="btn btn-primary btn-sm m-1" onclick="Next()">下一个</button>
+								<button type="button" class="btn btn-primary btn-sm m-1">下一个</button>
 							</div>
-							<div class="card-header" id="error_msg" style="color: red;"></div>
             </div>
           </div>
           <div class="card">
               <div class="card-body">
             <div style="display: flex;flex-direction: row;padding-left: 100px;text-align: center;">
-									<img src="assets/images/avatars/patientLogo.png" style="height: 100px;margin-top: 30px;" alt="user avatar">
-                <div style="font-size: 20px;padding-left: 70px;padding-top: 30px;" id="patientInfo">
-               
+									<img src="assets/images/avatars/avatar-1.png" style="height: 100px;margin-top: 30px;" alt="user avatar">
+                <div style="font-size: 20px;padding-left: 70px;padding-top: 30px;">
+                  <div style="padding-bottom: 10px;">姓名：</div>
+                  <div style="padding-bottom: 10px;">年龄：</div>
+                  <div style="padding-bottom: 10px;">性别：</div>
+                  <div style="padding-bottom: 10px;">民族：</div>
                 </div>
               
             </div>
@@ -151,6 +154,29 @@
 	</div>
 	<!-- end wrapper -->
 	
+	<!--start switcher-->
+	   <div class="switcher-wrapper">
+	       <div class="switcher-btn">
+		       <i class='bx bx-cog bx-spin'></i>
+		   </div>
+		   <div class="switcher-body">
+		      <h5 class="mb-0 text-uppercase">Theme Customizer</h5>
+			  <hr/>
+			  <h6 class="mb-0">Theme Styles</h6>
+			  <hr/>
+			  <div class="custom-control custom-radio">
+				  <input type="radio" id="darkmode" name="customRadio" class="custom-control-input">
+				  <label class="custom-control-label" for="darkmode">Dark Mode</label>
+			  </div>
+			  <hr/>
+			  <div class="custom-control custom-radio">
+			    <input type="radio" id="lightmode" name="customRadio" checked class="custom-control-input">
+			    <label class="custom-control-label" for="lightmode">Light Mode</label>
+			  </div>
+		   </div>
+	   </div>
+	 <!--end switcher-->
+	 
 	
 	<!-- JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -163,9 +189,6 @@
 	<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 	<!-- App JS -->
 	<script src="assets/js/app.js"></script>
-	<script src="assets/js/cookie.js"></script>
-	<script src="assets/js/doctor-selectPatient.js"></script>
-
 </body>
 
 </html>
