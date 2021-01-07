@@ -26,7 +26,7 @@
 	<link rel="stylesheet" href="assets/css/dark-style.css" />
 </head>
 
-<body onload = "getallmed()">
+<body onload = "getallmed();putinfo()">
 	<!-- wrapper -->
 	<div class="wrapper">
 		<!--header-->
@@ -179,7 +179,7 @@
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 											<button type="button" onclick="subBingli()" class="btn btn-secondary" data-dismiss="modal">提交</button>
-											<button type="button" onclick="findhis()" class="btn btn-secondary" data-dismiss="modal">输入pnid查看历史病历</button>
+											<!-- <button type="button" onclick="findhis()" class="btn btn-secondary" data-dismiss="modal">输入pnid查看历史病历</button> -->
 										</div>
 								        </form>
 									</div>
@@ -190,6 +190,7 @@
 							<button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">开药</button>
 							<!-- Button trigger modal -->
 							<button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">开检验单</button>
+							<button style="margin-left: 20px;" onclick="checkhis()" type="button" class="btn btn-primary" >查看历史病历</button>
 							<!-- <button style="margin-left: 20px;" type="button" class="btn btn-primary" data-toggle="modal" data-target="#checkmodal">查看检验是否完成</button> -->
 							
 							<div class="modal fade" id="checkmodal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -309,6 +310,7 @@
 							<!-- Button trigger modal -->
 						</div>
 					</div>
+				
 
 				</div>
 			</div>
@@ -379,40 +381,20 @@
 			modal.find('.modal-title').text('New message to ' + recipient)
 			modal.find('.modal-body input').val(recipient)
 		});
-
-		function findhis() {
-			var pnid=document.getElementById("pnid").value
+        function getQueryString(name) {
+			var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) {
+				return unescape(r[2]);
+			}
+			return null;
+		}
+		function checkhis() {
+			var pnid=getQueryString("pid")
+			console.log(pnid)
 			window.location.href='new-record.html?pnid='+pnid;
 		}
-
-		function subBingli() {
-			var sid=document.getElementById("sid").value
-			var cid=document.getElementById("cid").value
-			var pnid=document.getElementById("pnid").value
-			var comment=document.getElementById("comment").value
-			console.log(sid)
-			console.log("bbbbbb")
-			
-			var data = {"cid":cid, "sid":sid, "comment":comment, "pnid":pnid}
-			$.ajax({
-				url:"http://39.108.63.4:8080/treatment/submitPatientHistory",
-				type:"post",
-				data:data,
-				dataType:"json",
-				success:function(result){
-					console.log("ccc")
-					console.log(result)
-					if(result.success == true){
-						console.log("aaaaaaa")
-						console.log(result.msg)
-					    
-					}
-					window.alert(result.msg)
-				}
-			})
-			// window.alert("登录成功")
-		}
-		
+ 	
 		function getallmed() {
             $.ajax({
 				url:"http://39.108.63.4:8080/treatment/getAllMedicine",
@@ -466,6 +448,44 @@
 			}
 			return null;
 		}
+		function putinfo() {
+			var sid=document.getElementById("sid")
+			sid.value = getQueryString("sid")
+			var cid=document.getElementById("cid")
+			cid.value = getQueryString("cid")
+			var pnid=document.getElementById("pnid")
+			pnid.value=getQueryString("pid")
+		}
+
+		function subBingli() {
+			var sid=document.getElementById("sid").value
+			var cid=document.getElementById("cid").value
+			var pnid=document.getElementById("pnid").value
+			var comment=document.getElementById("comment").value
+			console.log(sid)
+			console.log("bbbbbb")
+			
+			var data = {"cid":cid, "sid":sid, "comment":comment, "pnid":pnid}
+			$.ajax({
+				url:"http://39.108.63.4:8080/treatment/submitPatientHistory",
+				type:"post",
+				data:data,
+				dataType:"json",
+				success:function(result){
+					console.log("ccc")
+					console.log(result)
+					if(result.success == true){
+						console.log("aaaaaaa")
+						console.log(result.msg)
+					    
+					}
+					window.alert(result.msg)
+				}
+			})
+			// window.alert("登录成功")
+		}
+
+
        function kaiyao() {
 		   var cid = getQueryString("cid")
 		   var sid = getQueryString("sid")

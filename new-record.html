@@ -115,31 +115,25 @@
 					</div>
           <!--end breadcrumb-->
         
-							<div class="card">
+					<div class="card">
 						<div class="card-header" style="padding-top: 50px;">
 							<h3 class="card-title"  style="padding-left: 43%;">中心医院</h3>
 							<h5 class="card-text" style="padding-left: 35%;"><span id="pnidd"></span>病历记录</h5>
 						</div>
-								<div class="card-body"  style="padding-top: 30px;">
-									<!-- <h3 style="padding-left: 45%;">就诊记录</h7> -->
-									<!-- <div style="display: flex;flex-direction: row;padding-top: 30px;">
-										<div style="width: 25%;">
-											姓名:<div>ddd</div>
-										</div>
-										<div  style="width: 25%;">年龄:<div>ddd</div></div>
-										<div  style="width: 25%;">性别:<div>ddd</div></div>
-									
-									</div>
-									<div style="display: flex;flex-direction: row;padding-bottom: 30px;">
-										<div style="width: 20%;">
-											就诊日期:<div>ddd</div>
-										</div>
-										
-									</div> -->
-									<div class="row" id="hisrecord">
-									</div>
+						<div class="card-body" id="commoninfo" style="padding-top: 30px;">
+							<div style="display: flex;flex-direction: row;padding-top: 30px;">
+								<div style="width: 25%;">
+									姓名:<div id="pname">ddd</div>
 								</div>
+								<div  style="width: 25%;">年龄:<div id="page">ddd</div></div>
+								<div  style="width: 25%;">性别:<div id="psex">ddd</div></div>
+							
 							</div>
+
+							<div class="row" id="hisrecord">
+							</div>
+						</div>
+					</div>
 			<!--end page-content-wrapper-->
 		</div>
 		<!--end page-wrapper-->
@@ -205,7 +199,8 @@
 			$.ajax({
 				url:"http://39.108.63.4:8080/treatment/getPatientHistory",
 				type:"get",
-				data:data,
+				contentType: "application/json",
+				data:JSON.stringify(data),
 				dataType:"json",
 				success:function(result){
 					console.log("ccc")
@@ -222,6 +217,30 @@
 					//window.alert(result.msg)
 				}
 			})
+			idata = {'nid':pnid}
+			$.ajax({
+              url:"http://39.108.63.4:8080/reservation/pullPatientInfo",
+              type:"post",
+              async: false,
+              data:idata,
+              dataType:"json",
+              success:function(result){
+                  if(result.success == true){
+                    var info = result.data
+					document.getElementById("pname").innerHTML = info.pName
+					document.getElementById("psex").innerHTML = info.pGender
+					document.getElementById("page").innerHTML = info.pAge
+                    // document.getElementById("presentP").innerHTML=presentP; 
+					// var html = ''	    
+                    // html +=  '<div style="padding-bottom: 10px;">姓名：'+ info.pName+'</div>'+
+                    //           '<div style="padding-bottom: 10px;">年龄：'+ info.pAge+'</div>'+
+                    //           '<div style="padding-bottom: 10px;">性别：'+ info.pGender+'</div>'+
+                    //           '<div style="padding-bottom: 10px;">民族：'+ info.pNationality+'</div>'
+                    // document.getElementById("commoninfo").innerHTML=html; 
+                  }
+                  console.log('re',result)
+              }
+          })
 		}
 	</script>
 </body>
