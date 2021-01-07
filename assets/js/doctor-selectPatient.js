@@ -59,3 +59,29 @@ function Next() {
     }
 })
 }
+
+function curePatient(){
+  var data = {'pid':globalPresentPatient}
+  $.ajax({
+		url:"http://39.108.63.4:8080/reservation/queryClinicHistory",
+		type:"post",
+		data:data,
+		dataType:"json",
+		success:function(result){
+			console.log(result)
+				if(result.success == true){
+					var cids = result.data
+          console.log('cids',cids)
+          for(var i = 0; i < cids.length; i++){
+            console.log(cids[i].curr_State)
+            if(cids[i].curr_State == "ON_PAR"){
+              var sid = getCookie("sid")
+              var link ="component-modals.html" + '?cid='+cids[i].cid + '&sid=' + sid
+              console.log("link",link)
+              window.location.href = link	
+            }
+          }
+				}
+		}
+})
+}

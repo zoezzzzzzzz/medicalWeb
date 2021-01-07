@@ -16,9 +16,6 @@ function Login() {
   var password=document.getElementById("password").value
   var oError = document.getElementById("error_box")
   console.log(sid)
-  document.cookie ="sid="+sid
-  document.cookie ="password="+password
-  console.log(document.cookie.split(";"))
   // if (phoneNum.length != 11) {
   //  oError.innerHTML = "手机号必须为11位";
   //  isError = false;
@@ -32,13 +29,19 @@ function Login() {
     dataType:"json",
     success:function(result){
         if(result.success == true){
+          document.cookie ="sid="+sid
+          document.cookie ="password="+password
+          console.log("cookie",document.cookie.split(";"))
           if(sid[0] == 'F'){
-            window.location.href='guahao.html';
+            window.location.href='keshi.html';
           }else if(sid[0] == 'D'){
             window.location.href='doctor-selectPatient.html';
+          }else if(sid[0] == 'E'){
+            var link = 'component-buttons.html' + '?sid='+sid
+            window.location.href=link;
           }
         }
-        console.log(result.msg)
+        console.log(result)
     }
 })
   // window.alert("登录成功")
