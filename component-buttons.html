@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="assets/css/dark-style.css" />
 </head>
 
-<body onload="medlist()">
+<body>
 	<!-- wrapper -->
 	<div class="wrapper">
 		<!--header-->
@@ -140,6 +140,13 @@
 						</div>
 						<div class="card-body">
 							<div class="form-group">
+								<label>输入病人就诊id并点击确认</label>
+								<input id="ccid" name="ccid" type="text" class="form-control" placeholder="search"/>
+							</div>
+							<button type="button" onclick="chaxunmtdlist()" class="btn btn-primary px-4"> 确认</button>
+						</div>
+						<div class="card-body">
+							<div class="form-group">
 								<label>药单id</label>
 								<select class="custom-select" id="validationCustom04" required>
 															
@@ -192,10 +199,10 @@
 			}
 			return null;
 		}
-		function medlist() {
-			var cid = getQueryString("cid");
+		function chaxunmtdlist() {
+			var cid = document.getElementById("ccid").value
 			var data = {"cid": cid}
-			var sid = getQueryString("sid");
+			console.log("cccdddd")
 			$.ajax({
 				url:"http://39.108.63.4:8080/medicine/getTableFromID",
 				type:"get",
@@ -214,7 +221,6 @@
 					}
 				}
 			})
-
 		}
 		function watchmed() {
 			var options=$("#validationCustom04 option:selected");

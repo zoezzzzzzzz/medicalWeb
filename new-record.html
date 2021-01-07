@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="assets/css/dark-style.css" />
 </head>
 
-<body>
+<body onload="getinfo()">
 	<!-- wrapper -->
 	<div class="wrapper">
 		<!--header-->
@@ -118,111 +118,27 @@
 							<div class="card">
 						<div class="card-header" style="padding-top: 50px;">
 							<h3 class="card-title"  style="padding-left: 43%;">中心医院</h3>
-							<h5 class="card-text" style="padding-left: 45%;">病历记录</h5>
+							<h5 class="card-text" style="padding-left: 35%;"><span id="pnidd"></span>病历记录</h5>
 						</div>
 								<div class="card-body"  style="padding-top: 30px;">
-									<h7 style="padding-left: 45%;">就诊记录</h7>
-									<div style="display: flex;flex-direction: row;padding-top: 30px;">
+									<!-- <h3 style="padding-left: 45%;">就诊记录</h7> -->
+									<!-- <div style="display: flex;flex-direction: row;padding-top: 30px;">
 										<div style="width: 25%;">
-											姓名：xx
+											姓名:<div>ddd</div>
 										</div>
-										<div  style="width: 25%;">年龄:xx</div>
-										<div  style="width: 25%;">性别：xx</div>
-										<div  style="width: 25%;">民族：xx</div>
+										<div  style="width: 25%;">年龄:<div>ddd</div></div>
+										<div  style="width: 25%;">性别:<div>ddd</div></div>
+									
 									</div>
 									<div style="display: flex;flex-direction: row;padding-bottom: 30px;">
 										<div style="width: 20%;">
-											就诊日期：xx
+											就诊日期:<div>ddd</div>
 										</div>
 										
-									</div>
-									<div class="row">
-										<div class="col-12 col-lg-3 col-xl-3">
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">过敏史</h5>
-													<h6 class="card-subtitle mb-2">Card subtitle</h6>
-													<p class="">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="card-link">Card link</a>
-													<a href="#" class="card-link">Another link</a>
-												</div>
-											</div>
-										</div>
-										<div class="col-12 col-lg-3 col-xl-3">
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">现病史</h5>
-													<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-													<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="card-link">Card link</a>
-													<a href="#" class="card-link">Another link</a>
-												</div>
-											</div>
-										</div>
-										<div class="col-12 col-lg-3 col-xl-3">
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">既往史</h5>
-													<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-													<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="card-link">Card link</a>
-													<a href="#" class="card-link">Another link</a>
-												</div>
-											</div>
-										</div>
-										<div class="col-12 col-lg-3 col-xl-3">
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">主诉</h5>
-													<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-													<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="card-link">Card link</a>
-													<a href="#" class="card-link">Another link</a>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-12 col-lg-3 col-xl-3">
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">体检</h5>
-													<h6 class="card-subtitle mb-2">Card subtitle</h6>
-													<p class="">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="card-link">Card link</a>
-													<a href="#" class="card-link">Another link</a>
-												</div>
-											</div>
-										</div>
-										<div class="col-12 col-lg-3 col-xl-3">
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">辅助检查</h5>
-													<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-													<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="card-link">Card link</a>
-													<a href="#" class="card-link">Another link</a>
-												</div>
-											</div>
-										</div>
-										<div class="col-12 col-lg-3 col-xl-3">
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">诊断</h5>
-													<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-													<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="card-link">Card link</a>
-													<a href="#" class="card-link">Another link</a>
-												</div>
-											</div>
-										</div>
-										<div class="col-12 col-lg-3 col-xl-3">
-											<div class="card">
-												<div class="card-body">
-													<h5 class="card-title">处理</h5>
-													<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-													<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> <a href="#" class="card-link">Card link</a>
-													<a href="#" class="card-link">Another link</a>
-												</div>
-											</div>
-										</div>
+									</div> -->
+									<div class="row" id="hisrecord">
 									</div>
 								</div>
-								
-								
 							</div>
 			<!--end page-content-wrapper-->
 		</div>
@@ -273,6 +189,41 @@
 	<script src="assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js"></script>
 	<!-- App JS -->
 	<script src="assets/js/app.js"></script>
+	<script>
+		function getQueryString(name) {
+			var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) {
+				return unescape(r[2]);
+			}
+			return null;
+		}
+		function getinfo() {
+			var pnid = getQueryString("pnid");
+			var data = {"pnid": pnid}
+			document.getElementById("pnidd").innerHTML = pnid
+			$.ajax({
+				url:"http://39.108.63.4:8080/treatment/getPatientHistory",
+				type:"get",
+				data:data,
+				dataType:"json",
+				success:function(result){
+					console.log("ccc")
+					console.log(result)
+					if(result.success == true){
+						console.log("aaaaaaa")
+						console.log(result.data)
+						var str = ""
+						for (let i = 0; i < result.data.length; i++) {
+							str += `<div class="col-12 col-lg-12 col-xl-12"><div class="card"><div class="card-body"><h5 class="card-title">记录</h5><p class="">${result.data[i].hDate}</p><p class="">${result.data[i].hComment}</p></div></div></div>`
+						}
+						$("#hisrecord").append(str)
+					}
+					//window.alert(result.msg)
+				}
+			})
+		}
+	</script>
 </body>
 
 </html>
