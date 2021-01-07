@@ -76,7 +76,7 @@ function curePatient(){
             console.log(cids[i].curr_State)
             if(cids[i].curr_State == "ON_PAR"){
               var sid = getCookie("sid")
-              var link ="component-modals.html" + '?cid='+cids[i].cid + '&sid=' + sid
+              var link ="component-modals.html" + '?cid='+cids[i].cid + '&sid=' + sid + '&pid=' + globalPresentPatient
               console.log("link",link)
               window.location.href = link	
             }

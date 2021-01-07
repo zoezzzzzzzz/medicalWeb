@@ -25,7 +25,8 @@ function Login() {
   $.ajax({
     url:"http://39.108.63.4:8080/utils/login",
     type:"post",
-    data:data,
+    contentType: "application/json",
+    data:JSON.stringify(data),
     dataType:"json",
     success:function(result){
         if(result.success == true){
