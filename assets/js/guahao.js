@@ -13,8 +13,9 @@ if (url.indexOf("?") != -1) {
 		success:function(result){
 			console.log(result)
 				if(result.success == true){
-          var result = result.msg 
-          document.getElementById("result").innerHTML=result; 
+          var msg = result.msg 
+          document.getElementById("ccid").innerHTML=result.data; 
+          document.getElementById("result").innerHTML=msg; 
         }else{
           document.getElementById("result").innerHTML="挂专家号成功"; 
         }

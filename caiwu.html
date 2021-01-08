@@ -80,11 +80,10 @@
 			</nav>
 		</header>
 		<!--end header-->
-		<!--page-wrapper-->
 		<div class="page-wrapper">
-			
+
 			<!--page-content-wrapper-->
-			<div class="page-content-wrapper" style="margin-left: 0%;">
+			<div class="page-content-wrapper">
 				<div class="page-content">
 					<!--breadcrumb-->
 					<div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
@@ -119,13 +118,17 @@
 						</div>
 						<div class="card-body">
 							<div class="form-group">
-                                <label>项目</label>
+                                <label>检验单项目</label>
+								<select id="validationCustom1" class="multiple-select2" data-placeholder="Choose anything" multiple="multiple">
+                                   
+                                </select>
+                                <label>药单项目</label>
 								<select id="validationCustom" class="multiple-select" data-placeholder="Choose anything" multiple="multiple">
-                                   <option>0000</option>
-                                   <option>1111</option>
+                                
                                 </select>
 							</div>
-							<button type="button" onclick="subMed()" class="btn btn-primary px-4"> 提交</button>
+                            <button type="button" onclick="subjiaofei()" class="btn btn-primary px-4"> 提交</button>
+                            <h5 id="link" style="display: none;">请点击链接完成缴费 <a id="jiafei" style="font-size: small;" href="#" id="jiaofeilink">缴费链接</a></h3>
 						</div>
                     </div>
 
@@ -134,7 +137,7 @@
 						<div class="card-body">
                         <label>输入就诊id</label>
                         <input type="text" id="cid3" name="cid" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-												<label>输入需退项目id</label>
+												<label>输入退费单号</label>
                         <input type="text" id="cid4" name="cid" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                         
 												<div id="linkData" style="padding-top: 20px;"></div>
@@ -144,8 +147,7 @@
                     
 					<!--end page-content-wrapper-->
 		</div>
-	
-	
+			</div>
 	
 	<!-- JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -161,7 +163,14 @@
 	<!-- App JS -->
 	<script src="assets/js/app.js"></script>
     <script>
+		setSidTop()
         $('.multiple-select').select2({
+			theme: 'bootstrap4',
+			width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
+			placeholder: $(this).data('placeholder'),
+			allowClear: Boolean($(this).data('allow-clear')),
+        });
+        $('.multiple-select2').select2({
 			theme: 'bootstrap4',
 			width: $(this).data('width') ? $(this).data('width') : $(this).hasClass('w-100') ? '100%' : 'style',
 			placeholder: $(this).data('placeholder'),
@@ -183,6 +192,7 @@
             $.ajax({
 				url:"http://39.108.63.4:8080/finance/getAllUnpaidItems",
                 type:"get",
+                async: false,
                 data: data,
 				dataType:"json",
 				success:function(result){
@@ -193,7 +203,26 @@
                     if (result.data.领药单.length == 0 && result.data.检验单.length ==0) {
                         window.alert("没有要缴费项目")
                     } else {
-                        document.getElementById("item").style.display="block"
+                        document.getElementById("item").style.display="block"   
+                        list1 = result.data.领药单
+                        list2 = result.data.检验单
+                        console.log(list1,list2)
+                        for (var i = 0; i < list2.length; i++) {
+                            var newOption1 = document.createElement("option");
+                            //console.log(list2[i].ttID)
+                            newOption1.text = list2[i].ttID
+                            newOption1.value = list2[i].ttID
+                            document.getElementById("validationCustom1").add(newOption1);
+                        }
+                        for (var j = 0; j < list1.length; j++) {
+                            var newOption2 = document.createElement("option");
+                            //console.log(j)
+                            newOption2.text = list1[j].mtID
+                            newOption2.value = list1[j].mtID
+                            document.getElementById("validationCustom").add(newOption2);
+                            
+                        }
+                    
                     }
 				}
 			})
@@ -202,9 +231,7 @@
 		function tuifei(){
 			var cid = document.getElementById("cid3").value;
 			var id = document.getElementById("cid4").value;
-			console.log("id",id)
-			var retbody =JSON.stringify({"retBody":{"领药单":[{id}]}})
-			var data = {"refund":{"cid":cid,"retBody":{"领药单":[id]}}}
+			var data = {"cid":cid,"retBody":{"领药单":[id]}}
 			console.log("data",JSON.stringify(data))
 			$.ajax({
 			url:"http://39.108.63.4:8080/finance/refund",
@@ -220,7 +247,53 @@
 			}
 		})
 	}
+
+	function subjiaofei() {
+            var cid = document.getElementById("cid").value;
+            var options1=$("#validationCustom").val();
+            var options2=$("#validationCustom1").val();
+            console.log(options1, options2)
+            var paydata = {"领药单":options1, "检验单":options2}
+            var idata = {"cid": cid, "payList":paydata}
+            console.log("data", idata)
+            $.ajax({
+                url:"http://39.108.63.4:8080/finance/getItemsPayLink",
+                type:"post",
+                contentType: "application/json",
+                data: JSON.stringify(idata),
+                dataType:"json",
+                success:function(result){
+                    console.log("ccc")
+                    console.log(result.data)
+                    if (result.success == true) {
+                        console.log("ddd")
+                        console.log(result.data)
+                        document.getElementById("link").style.display="block"
+												document.getElementById("jiafei").href = result.data
+												var urlll ="http://"+result.data
+												console.log("http://",urlll)
+												$.ajax({
+													url:"http://"+result.data,
+													type:"get",
+													dataType:"json",
+													async:false,
+													success:function(result){
+														console.log(result)
+														// 	if(result.success == true){
+														// 		var msg = result.msg 
+														// 		document.getElementById("ccid").innerHTML=result.data; 
+														// 		document.getElementById("result").innerHTML=msg; 
+														// 	}else{
+														// 		document.getElementById("result").innerHTML="挂专家号成功"; 
+														// 	}
+													}
+											})
+                    }        
+                }
+            })
+        }
 </script>
+  
 </body>
 
 </html>

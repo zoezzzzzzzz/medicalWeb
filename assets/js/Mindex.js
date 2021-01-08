@@ -17,7 +17,7 @@ function Login() {
   var oError = document.getElementById("error_box")
   console.log(sid)
   // if (phoneNum.length != 11) {
-  //  oError.innerHTML = "手机号必须为11位";
+  //  oError.innerHTML = "手机号必须为11佄1�7";
   //  isError = false;
   // }
   
@@ -41,8 +41,8 @@ function Login() {
             var link = 'component-buttons.html' + '?sid='+sid
             window.location.href=link;
           }else if(sid[0] == 'M'){
-            var link = "caiwu.html"
-            window.location.href=link;
+            var link = 'caiwu.html' + '?sid='+sid
+            window.location.href = link
           }
         }else{
           window.alert(result.msg)
