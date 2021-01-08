@@ -143,7 +143,7 @@
                                 </select>
 							</div>
                             <button type="button" onclick="subjiaofei()" class="btn btn-primary px-4"> 提交</button>
-                            <h3 id="link" style="display: none;">请点击以下链接完成缴费 <span id="jiaofeilink"></span></h3>
+                            <h3 id="link" style="display: block;">请点击以下链接完成缴费 <a style="font-size: small;" href="#" id="jiaofeilink">缴费链接</a></h3>
 						</div>
                     </div>
 
@@ -282,7 +282,7 @@
                 success:function(result){
                     console.log("ccc")
                     console.log(result)
-                    if (result == true) {
+                    if (result.success == true) {
                         document.getElementById("link").style.display="block"
                         document.getElementById("jiaofeilink").innerHTML = result.data
                     }        
