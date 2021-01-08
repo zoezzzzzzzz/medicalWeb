@@ -40,7 +40,12 @@ function Login() {
           }else if(sid[0] == 'E'){
             var link = 'component-buttons.html' + '?sid='+sid
             window.location.href=link;
+          }else if(sid[0] == 'M'){
+            var link = "caiwu.html"
+            window.location.href=link;
           }
+        }else{
+          window.alert(result.msg)
         }
         console.log(result)
     }

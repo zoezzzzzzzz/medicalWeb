@@ -5,7 +5,7 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-	<title>Synadmin - Bootstrap4 Admin Template</title>
+	<title>重大医院</title>
 	<!--favicon-->
 	<link rel="icon" href="assets/images/favicon-32x32.png" type="image/png" />
 	<!--plugins-->
@@ -82,23 +82,9 @@
 		<!--end header-->
 		<!--page-wrapper-->
 		<div class="page-wrapper">
-			<!--sidebar-wrapper-->
-			<div class="sidebar-wrapper" data-simplebar="true">
-				<div class="sidebar-header">
-					<a href="javaScript:;" class="toggle-btn"> <i class="bx bx-menu"></i>
-					</a>
-					<div class="logo-white">
-						<img src="assets/images/logo-white.png" class="logo-icon-2" alt="">
-					</div>
-					<div class="logo-dark">
-						<img src="assets/images/logo-dark.png" class="logo-icon-2" alt="">
-					</div>
-				</div>
-	
-			</div>
-			<!--end sidebar-wrapper-->
+			
 			<!--page-content-wrapper-->
-			<div class="page-content-wrapper">
+			<div class="page-content-wrapper" style="margin-left: 0%;">
 				<div class="page-content">
 					<!--breadcrumb-->
 					<div class="page-breadcrumb d-none d-md-flex align-items-center mb-3">
@@ -148,7 +134,10 @@
 						<div class="card-body">
                         <label>输入就诊id</label>
                         <input type="text" id="cid3" name="cid" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                        <div id="linkData" style="padding-top: 20px;"></div>
+												<label>输入需退项目id</label>
+                        <input type="text" id="cid4" name="cid" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                        
+												<div id="linkData" style="padding-top: 20px;"></div>
                         <button onclick="tuifei()" class="button btn-primary">提交</button>
 						</div>
                     </div>
@@ -157,29 +146,6 @@
 		</div>
 	
 	
-	<!--start switcher-->
-	   <div class="switcher-wrapper">
-	       <div class="switcher-btn">
-		       <i class='bx bx-cog bx-spin'></i>
-		   </div>
-		   <div class="switcher-body">
-		      <h5 class="mb-0 text-uppercase">Theme Customizer</h5>
-			  <hr/>
-			  <h6 class="mb-0">Theme Styles</h6>
-			  <hr/>
-			  <div class="custom-control custom-radio">
-				  <input type="radio" id="darkmode" name="customRadio" class="custom-control-input">
-				  <label class="custom-control-label" for="darkmode">Dark Mode</label>
-			  </div>
-			  <hr/>
-			  <div class="custom-control custom-radio">
-			    <input type="radio" id="lightmode" name="customRadio" checked class="custom-control-input">
-			    <label class="custom-control-label" for="lightmode">Light Mode</label>
-			  </div>
-		   </div>
-	   </div>
-	 <!--end switcher-->
-	 
 	
 	<!-- JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -194,8 +160,6 @@
 	<script src="assets/js/cookie.js"></script>
 	<!-- App JS -->
 	<script src="assets/js/app.js"></script>
-	<script src="assets/js/cookie.js"></script>
-    <script src="assets/js/guahao.js"></script>
     <script>
         $('.multiple-select').select2({
 			theme: 'bootstrap4',
@@ -233,8 +197,30 @@
                     }
 				}
 			})
-        }
-    </script>
+				}
+
+		function tuifei(){
+			var cid = document.getElementById("cid3").value;
+			var id = document.getElementById("cid4").value;
+			console.log("id",id)
+			var retbody =JSON.stringify({"retBody":{"领药单":[{id}]}})
+			var data = {"refund":{"cid":cid,"retBody":{"领药单":[id]}}}
+			console.log("data",JSON.stringify(data))
+			$.ajax({
+			url:"http://39.108.63.4:8080/finance/refund",
+			type:"post",
+			contentType: "application/json",
+			data: JSON.stringify(data),
+			dataType:"json",
+			success:function(result){
+				console.log(result)
+				if(result.success == true){
+					window.alert("退费成功")
+				}
+			}
+		})
+	}
+</script>
 </body>
 
 </html>
