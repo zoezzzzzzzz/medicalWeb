@@ -13,6 +13,7 @@ function getCookie(objName)//获取指定名称的cookie的值
 
 function setSidTop(){
   var sid = getCookie("sid")
+  console.log("sid",sid)
   var html = ''
   html += '<p class="user-name mb-0">'+sid+'</p>'
   document.getElementById("sidTop").innerHTML=html; 
