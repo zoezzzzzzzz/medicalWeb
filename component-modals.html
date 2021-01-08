@@ -208,7 +208,7 @@
 										</div>		
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-											<button type="button" onclick="jianyan()" class="btn btn-primary">Save changes</button>
+											<button type="button" onclick="jianyan()" class="btn btn-primary">提交</button>
 										</div>
 									</div>
 								</div>
@@ -453,7 +453,7 @@
 				dataType:"json",
 				success:function(result){
 					console.log("ccc")
-					console.log(result)
+					console.log("result",result)
 					console.log(data)
 					if(result.success == true){
 						window.alert("success")	

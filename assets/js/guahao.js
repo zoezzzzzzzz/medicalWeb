@@ -15,7 +15,14 @@ if (url.indexOf("?") != -1) {
 				if(result.success == true){
           var result = result.msg 
           document.getElementById("result").innerHTML=result; 
-				}
+        }else{
+          document.getElementById("result").innerHTML="挂专家号成功"; 
+        }
 		}
 })
+  }
+
+  function goBack()
+  {
+    window.location.href = "keshi.html"
   }

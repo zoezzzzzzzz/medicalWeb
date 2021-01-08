@@ -36,6 +36,8 @@ function Next() {
               data:idata,
               dataType:"json",
               success:function(result){
+                var error_msg = ""
+                document.getElementById("error_msg").innerHTML=error_msg; 
                   if(result.success == true){
                     var info = result.data
                     var presentP = "当前病人：" + info.pName

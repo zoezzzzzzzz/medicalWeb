@@ -90,7 +90,7 @@ function submitForm1(){
 			console.log(result)
 				if(result.success == true){
 					var linkData = result.data
-					console.log('link',link)
+					console.log('linkData',linkData)
 					var link ="guahao.html" + '?linkData='+linkData
 					window.location.href = link	
 				}
